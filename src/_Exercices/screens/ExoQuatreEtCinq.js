@@ -11,15 +11,17 @@ export default class ExoQuatreEtCinq extends Component {
         longitude: 2.275725,
         latitudeDelta: 0.2,
         longitudeDelta: 0.2,
-        name: "Benjamin Godard - Victor Hugo"
+        name: "Benjamin Godard - Victor Hugo",
     }
 
     render() {
         return (
-            <StationVelib latitude={this.props.latitude}
+            <StationVelib
+                latitude={this.props.latitude}
                 longitude={this.props.longitude}
                 latitudeDelta={this.props.latitudeDelta}
-                longitudeDelta={this.props.longitudeDelta} name={this.props.name} />
+                longitudeDelta={this.props.longitudeDelta}
+                name={this.props.name}/>
         )
     }
 }

@@ -4,53 +4,41 @@ import {
   StyleSheet,
   StatusBar,
 } from 'react-native';
-import ExoUn from './src/screens/ExoUn';
-import ExoTrois from './src/screens/ExoTrois';
-import ExoQuatreEtCinq from './src/screens/ExoQuatreEtCinq';
-import ExoSix from './src/screens/ExoSix'
-import Home from './src/screens/Home';
+import Map from './src/screens/Map'
+import Listes from './src/screens/Listes';
 import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
 
 const Nav = createMaterialTopTabNavigator(
   {
-    Home: { screen: Home },
-    Un: { screen: ExoUn },
-    Trois: { screen: ExoTrois },
-    QuatreEtCinq: { screen: ExoQuatreEtCinq },
-    Six: { screen: ExoSix },
+    Listes: { screen: Listes },
+    Map: { screen: Map },
   },
   {
+    tabBarPosition: 'bottom',
     tabBarOptions: {
       style: {
-        backgroundColor: 'green',
+        backgroundColor: 'white',
+      },
+      labelStyle: {
+        textAlign: 'center',
+        color: 'black'
+      },
+      indicatorStyle: {
+        opacity: 0,
       }
     }
   }
 );
 
-const TopBar = createStackNavigator({
-  tabScreen: {
-    screen: Nav,
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: 'green'
-      },
-      title: '  ⃔  Exo Deux   ⃕ '
-    }
-  }
-})
-
-const AppContainer = createAppContainer(TopBar);
+const AppContainer = createAppContainer(Nav);
 
 export default () => {
   return (
-    // SafeAreaView permet de rajouter des en haut et en bas de la page
-    // <SafeAreaView style={styles.container} >   
-    // <StatusBar /> 
-    <AppContainer />
-    //</SafeAreaView> 
+    <SafeAreaView style={styles.container} >
+      <StatusBar barStyle="dark-content" />
+      <AppContainer />
+    </SafeAreaView>
   )
 }
 
