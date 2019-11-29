@@ -12,8 +12,9 @@ export const getApiVelib = async (url) => {
         let responseJson = await response.json();
 
         if (responseJson !== null) {
-            await AsyncStorage.setItem('responseJson', JSON.stringify(responseJson));
-            return responseJson;
+            await AsyncStorage.setItem('responseJson', JSON.stringify(responseJson.records));
+            //console.log(responseJson)
+            return responseJson.records;
         }
     } catch (error) {
         const data = await AsyncStorage.getItem('responseJson');

@@ -30,7 +30,7 @@ export default class ExoSix extends Component {
 
             // TODO Add geolocation to url request
             getApiVelib(URL).then(velibs => {
-                console.log(velibs);
+                // console.log(velibs);
             })
         });
     }

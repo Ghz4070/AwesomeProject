@@ -10,9 +10,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "@react-native-community/geolocation": "^2.0.2",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-button": "^2.4.0",
     "react-native-gesture-handler": "^1.5.2",
     "react-native-maps": "0.26.1",
     "react-native-reanimated": "^1.4.0",

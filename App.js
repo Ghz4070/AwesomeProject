@@ -12,7 +12,7 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 const Nav = createMaterialTopTabNavigator(
   {
     Listes: { screen: Listes },
-    Map: { screen: Map },
+    Carte: { screen: Map },
   },
   {
     tabBarPosition: 'bottom',

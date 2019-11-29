@@ -4,14 +4,33 @@ import {
     View,
     StyleSheet,
 } from 'react-native';
+import { getApiVelib, URL } from '../components/GetApiVelib'
 
 export default class Listes extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            datas: []
+        };
+    }
+
+    componentDidMount() {
+        this.velib()
+    }
+
+    velib = async () => {
+        const velibs = await getApiVelib(URL)
+        this.setState({ datas: velibs })
+        // console.log(velibs);
+    }
+
     render() {
         return (
             <View style={styles.content}>
-                <Text style={styles.homePage}>
-                    Listes
-                </Text>
+                <Text style={styles.homePage}>Listes</Text>
+                {this.state.datas.map(velib => {
+                    return <Text style={styles.homePage}>{velib.fields.station_name}</Text>
+                })}
             </View>
         )
     }

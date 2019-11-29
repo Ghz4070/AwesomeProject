@@ -4,10 +4,11 @@ import StationVelib from '../components/StationVelib'
 import Geolocation from '@react-native-community/geolocation';
 import { getApiVelib, URL } from '../components/GetApiVelib';
 
-export default class ExoSix extends Component {
+export default class Map extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            datas: [],
             latitude: '',
             longitude: '',
             latitudeDelta: 0.2,
@@ -18,6 +19,7 @@ export default class ExoSix extends Component {
 
     componentDidMount() {
         this.getGeolocation()
+        this.velib()
     }
 
     getGeolocation = async () => {
@@ -25,14 +27,14 @@ export default class ExoSix extends Component {
             this.setState({
                 latitude: info.coords.latitude,
                 longitude: info.coords.longitude,
-                name: 'Ma Position',
-            })
-
-            // TODO Add geolocation to url request
-            getApiVelib(URL).then(velibs => {
-                console.log(velibs);
             })
         });
+    }
+
+    velib = async () => {
+        const velibs = await getApiVelib(URL)
+        this.setState({ datas: velibs })
+        // console.log(this.state)
     }
 
     render() {
@@ -44,7 +46,8 @@ export default class ExoSix extends Component {
                 longitude={this.state.longitude}
                 latitudeDelta={this.state.latitudeDelta}
                 longitudeDelta={this.state.longitudeDelta}
-                name={this.state.name}>
+                name={this.state.name}
+                datas={this.state.datas}>
             </StationVelib>
         }
 

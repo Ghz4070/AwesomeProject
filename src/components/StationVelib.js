@@ -8,6 +8,7 @@ export default class StationVelib extends Component {
         return (
             <MapView
                 style={styles.map}
+                showsUserLocation={true}
                 initialRegion={{
                     latitude: this.props.latitude,
                     longitude: this.props.longitude,
@@ -15,10 +16,11 @@ export default class StationVelib extends Component {
                     longitudeDelta: this.props.longitudeDelta,
                 }}
             >
-                {/* {this.state.markers.map(marker => ( */}
-                    <Marker coordinate={{ latitude: this.props.latitude, longitude: this.props.longitude }}
-                        title={this.props.name} />
-                {/* ))} */}
+                {this.props.datas.map(velib => {
+                    return <Marker coordinate={{ latitude: velib.fields.geo[0], longitude: velib.fields.geo[1] }}
+                        title={velib.fields.station_name} />
+                })}
+                
             </MapView>
         );
     }
