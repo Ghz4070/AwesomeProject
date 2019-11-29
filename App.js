@@ -1,49 +1,23 @@
 import React from 'react';
 import {
+  View,
   SafeAreaView,
   StyleSheet,
   StatusBar,
 } from 'react-native';
-import Map from './src/screens/Map'
-import Listes from './src/screens/Listes';
-import { createAppContainer } from 'react-navigation';
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+import AppNavigator from './src/components/navigation/AppNavigation'
 
-const Nav = createMaterialTopTabNavigator(
-  {
-    Listes: { screen: Listes },
-    Carte: { screen: Map },
-  },
-  {
-    tabBarPosition: 'bottom',
-    tabBarOptions: {
-      style: {
-        backgroundColor: 'white',
-      },
-      labelStyle: {
-        textAlign: 'center',
-        color: 'black'
-      },
-      indicatorStyle: {
-        opacity: 0,
-      }
-    }
-  }
-);
-
-const AppContainer = createAppContainer(Nav);
-
-export default () => {
+export default function App() {
   return (
-    <SafeAreaView style={styles.container} >
+    <View style={styles.container} >
       <StatusBar barStyle="dark-content" />
-      <AppContainer />
-    </SafeAreaView>
-  )
+      <AppNavigator />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+    container: {
+        flex: 1,
+    },
 });

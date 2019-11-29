@@ -6,13 +6,21 @@ import {
 } from 'react-native';
 import { getApiVelib, URL } from '../components/GetApiVelib'
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const myIcon = <Icon name="home" size={30} color="#900" />;
+
 export default class Listes extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             datas: []
         };
     }
+
+    static navigationOptions = {
+        tabBarIcon: myIcon
+    };
 
     componentDidMount() {
         this.velib()

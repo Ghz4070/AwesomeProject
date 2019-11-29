@@ -2,7 +2,7 @@ import {
     AsyncStorage,
 } from 'react-native';
 
-export const URL = 'https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel'
+export const URL = 'https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel&rows=20&facet=overflowactivation&facet=creditcard&facet=kioskstate&facet=station_state'
 
 export const getApiVelib = async (url) => {
     try {
